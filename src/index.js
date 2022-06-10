@@ -4,7 +4,10 @@
  * @param {string} string
  * @returns {string}
  */
-export const replaceZAndVFromString = (string) => {};
+export const replaceZAndVFromString = (string) => {
+    let result = string.replace(/z/g,'*').replace(/v/g,'*');
+    return result;
+};
 
 /**
  * Функция должна принять 3 аргумента и все строки. Мы передаем строку,
@@ -16,7 +19,10 @@ export const replaceZAndVFromString = (string) => {};
  * @param {string} newWord
  * @returns {string}
  */
-export const changeWord = (string, word, newWord) => {};
+export const changeWord = (string, word, newWord) => {
+    let result = string.replace(word,newWord);
+    return result;
+};
 
 /**
  * Должна вернуть строку(1 аргумент) на обрезанную по длине(2 аргумент, число)
@@ -24,7 +30,10 @@ export const changeWord = (string, word, newWord) => {};
  * @param {number} length
  * @returns {string}
  */
-export const truncate = (string, length) => {};
+export const truncate = (string, length) => {
+    let result = string.substr(0,length);
+    return result;
+};
 
 /**
  * Принимает строку в первом аргументе, и символ во втором
@@ -37,7 +46,13 @@ export const truncate = (string, length) => {};
  * @param {string} symbol
  * @returns {number}
  */
-export const quantityOfSymbols = (string, symbol) => {};
+export const quantityOfSymbols = (string, symbol) => {
+    let counter = 0;
+    for (let i = 0; i <= string.length; i++) {
+        if (string.toLowerCase()[i] === symbol) counter++;
+      }
+    return counter;
+};
 
 /**
  * Принимает строку в первом аргументе, и символ во втором
@@ -54,4 +69,15 @@ export const quantityOfSymbols = (string, symbol) => {};
  * @param {string} symbol
  * @returns {number}
  */
-export const quantityOfSymbolsWithIndexOf = (string, symbol) => {};
+export const quantityOfSymbolsWithIndexOf = (string, symbol) => {
+    let quantity = 0;
+    let position = 0;
+    while (true) {
+        position = string.toLowerCase().indexOf(symbol, position);
+        if (position !== 1) 
+        quantity++
+        position++;
+        if (position === -1) break;
+    }
+    return quantity;
+};
